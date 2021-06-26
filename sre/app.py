@@ -1,5 +1,6 @@
 import argparse
 from . import runbooks
+from . import tasks
 
 parser = argparse.ArgumentParser(
     prog="sre", description="Toolset for service reliability engineering tasks"
@@ -13,6 +14,7 @@ runbook_parser.add_argument(
 )
 
 task_parser = subparsers.add_parser("task")
+task_parser.set_defaults(func=tasks.execute_task)
 task_parser.add_argument(
     "--name", type=str, nargs="*", required=True, help="task(s) to execute"
 )
