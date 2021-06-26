@@ -1,4 +1,5 @@
 import argparse
+from . import runbooks
 
 parser = argparse.ArgumentParser(
     prog="sre", description="Toolset for service reliability engineering tasks"
@@ -6,6 +7,7 @@ parser = argparse.ArgumentParser(
 subparsers = parser.add_subparsers(title="subcommands", description="valid subcommands")
 
 runbook_parser = subparsers.add_parser("runbook")
+runbook_parser.set_defaults(func=runbooks.execute_runbook)
 runbook_parser.add_argument(
     "--name", type=str, nargs="*", required=True, help="runbook(s) to execute"
 )
