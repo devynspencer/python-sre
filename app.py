@@ -19,7 +19,7 @@ output_group = parser.add_mutually_exclusive_group()
 output_group.add_argument(
     "--verbose", action="store_true", help="enable verbose output"
 )
-output_group.add_argument("--silent", action="store_true")
+output_group.add_argument("--silent", action="store_true", help="hide all output")
 
 args = parser.parse_args()
 
