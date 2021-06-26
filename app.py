@@ -5,10 +5,12 @@ parser = argparse.ArgumentParser(
 )
 subparsers = parser.add_subparsers(title="subcommands", description="valid subcommands")
 
-runbook_parser = subparsers.add_parser('runbook')
-runbook_parser.add_argument("--name", type=str, required=True, help="runbook(s) to execute")
+runbook_parser = subparsers.add_parser("runbook")
+runbook_parser.add_argument(
+    "--name", type=str, required=True, help="runbook(s) to execute"
+)
 
-task_parser = subparsers.add_parser('task')
+task_parser = subparsers.add_parser("task")
 task_parser.add_argument("--name", type=str, required=True, help="task(s) to execute")
 
 output_group = parser.add_mutually_exclusive_group()
