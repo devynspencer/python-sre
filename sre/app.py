@@ -26,5 +26,4 @@ output_group.add_argument(
 output_group.add_argument("--silent", action="store_true", help="hide all output")
 
 args = parser.parse_args()
-
-print(args)
+args.func(args)
