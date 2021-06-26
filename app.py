@@ -7,11 +7,13 @@ subparsers = parser.add_subparsers(title="subcommands", description="valid subco
 
 runbook_parser = subparsers.add_parser("runbook")
 runbook_parser.add_argument(
-    "--name", type=str, required=True, help="runbook(s) to execute"
+    "--name", type=str, nargs="*", required=True, help="runbook(s) to execute"
 )
 
 task_parser = subparsers.add_parser("task")
-task_parser.add_argument("--name", type=str, required=True, help="task(s) to execute")
+task_parser.add_argument(
+    "--name", type=str, nargs="*", required=True, help="task(s) to execute"
+)
 
 output_group = parser.add_mutually_exclusive_group()
 output_group.add_argument(
